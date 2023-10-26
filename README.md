@@ -1,2 +1,2 @@
 # AirPlane
- my first project
+ my first cocos-creator project
