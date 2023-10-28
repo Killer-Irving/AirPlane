@@ -551,7 +551,7 @@
     "propertyPath": [
       "_active"
     ],
-    "value": false
+    "value": true
   },
   {
     "__type__": "cc.Node",
@@ -821,6 +821,9 @@
       "__uuid__": "2f6eb0bd-49f5-47f5-a656-62e8332d8a67",
       "__expectedType__": "cc.Prefab"
     },
+    "createEnemyTime": 1,
+    "enemy1Speed": 0.5,
+    "enemy2Speed": 0.7,
     "_id": "16X+qSQtlLDZGs59k8cmQm"
   },
   {

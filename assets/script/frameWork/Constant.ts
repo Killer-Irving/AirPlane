@@ -23,8 +23,8 @@ export class Constant {
 
     public static Combination = {
         PLAN1: 1,
-        PLAN2: 1,
-        PLAN3: 1,
+        PLAN2: 2,
+        PLAN3: 3,
     }
 }
 
