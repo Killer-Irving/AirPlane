@@ -219,6 +219,7 @@
     "__prefab": {
       "__id__": 14
     },
+    "createBulletTime": 0.5,
     "_id": ""
   },
   {

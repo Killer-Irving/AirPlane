@@ -143,7 +143,7 @@ export class GameManager extends Component {
     public createCombination1() {
         const enemyArray = new Array<Node>(5)
         for (let i = 0; i < enemyArray.length; i++) {
-            enemyArray[i] = instantiate(this.enemy01)
+            enemyArray[i] = instantiate(this[`enemy0${math.randomRangeInt(1, 3)}`])
             const element = enemyArray[i]
             element.parent = this.node
             element.setPosition(-20 + i * 10, 0, -50)
@@ -164,7 +164,7 @@ export class GameManager extends Component {
             21, 0, -60,
         ]
         for (let i = 0; i < enemyArray.length; i++) {
-            enemyArray[i] = instantiate(this.enemy02)
+            enemyArray[i] = instantiate(this[`enemy0${math.randomRangeInt(1, 3)}`])
             const element = enemyArray[i]
             element.parent = this.node
             const startIndex = i * 3
