@@ -1,5 +1,5 @@
 
-import { _decorator, Component, instantiate, math, Node, Prefab, Vec3 } from 'cc';
+import { _decorator, BoxCollider, Component, instantiate, math, Node, Prefab, Vec3 } from 'cc';
 import { Bullet } from '../bullet/Bullet';
 import { Constant } from './Constant';
 import { EnemyPlane } from '../plane/EnemyPlane';
@@ -101,21 +101,29 @@ export class GameManager extends Component {
         }
     }
 
+    public addScore() {
+
+    }
+
     public createPlayerBullet() {
-        const bullet = instantiate(this.bullet01)
-        bullet.setParent(this.bulletRoot)
-        const pos = this.playerPlane.position
-        bullet.setPosition(pos.x, pos.y, pos.z - 2)
-        const bulletComp = bullet.getComponent(Bullet)
-        bulletComp.show(this.bulletSpeed, false)
+        // const bullet = instantiate(this.bullet01)
+        // bullet.setParent(this.bulletRoot)
+        // const pos = this.playerPlane.position
+        // bullet.setPosition(pos.x, pos.y, pos.z - 2)
+        // const bulletComp = bullet.getComponent(Bullet)
+        // bulletComp.show(this.bulletSpeed, false)
     }
 
     public createEnemyBullet(targetPos: Vec3) {
-        const bullet = instantiate(this.bullet01)
-        bullet.setParent(this.bulletRoot)
-        bullet.setPosition(targetPos.x, targetPos.y, targetPos.z + 8)
-        const bulletComp = bullet.getComponent(Bullet)
-        bulletComp.show(1, true)
+        // const bullet = instantiate(this.bullet01)
+        // bullet.setParent(this.bulletRoot)
+        // bullet.setPosition(targetPos.x, targetPos.y, targetPos.z + 8)
+        // const bulletComp = bullet.getComponent(Bullet)
+        // bulletComp.show(1, true)
+
+        // const colliderCpm = bullet.getComponent(BoxCollider)
+        // colliderCpm.setGroup(Constant.CollisionType.ENEMY_BULLET)
+        // colliderCpm.setMask(Constant.CollisionType.SELF_PLANE)
     }
 
     public createEnemyPlane() {

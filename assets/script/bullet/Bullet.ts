@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Collider, Component, ITriggerEvent, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -26,8 +26,14 @@ export class Bullet extends Component {
     // @property
     // serializableDummy = 0;
 
-    start() {
-        // [3]
+    onEnable() {
+        const collider = this.getComponent(Collider)
+        collider.on('onTriggerEnter', this._onTriggerEnter, this)
+    }
+
+    onDisable() {
+        const collider = this.getComponent(Collider)
+        collider.off('onTriggerEnter', this._onTriggerEnter, this)
     }
 
     update(deltaTime: number) {
@@ -53,6 +59,11 @@ export class Bullet extends Component {
     show(speed: number, isEnemyBullet: boolean) {
         this._bulletSpeed = speed
         this._isEnemyBullet = isEnemyBullet
+    }
+
+    private _onTriggerEnter(event: ITriggerEvent) {
+        console.log('trigger bullet destroy');
+        this.node.destroy()
     }
 }
 
