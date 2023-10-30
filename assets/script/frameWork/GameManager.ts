@@ -51,7 +51,6 @@ export class GameManager extends Component {
     @property
     public enemy2Speed = 0.7
 
-
     private _currShootTime = 0
     private _isShooting = false
     private _currCreateEnemyTime = 0
