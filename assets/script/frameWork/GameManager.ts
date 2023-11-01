@@ -1,8 +1,9 @@
 
-import { _decorator, BoxCollider, Component, instantiate, math, Node, Prefab, Vec3 } from 'cc';
+import { _decorator, BoxCollider, Component, instantiate, macro, math, Node, Prefab, Vec3 } from 'cc';
 import { Bullet } from '../bullet/Bullet';
 import { Constant } from './Constant';
 import { EnemyPlane } from '../plane/EnemyPlane';
+import { BulletProp } from '../bullet/BulletProp';
 const { ccclass, property } = _decorator;
 
 /**
@@ -51,10 +52,21 @@ export class GameManager extends Component {
     @property
     public enemy2Speed = 0.7
 
+    //道具
+    @property(Prefab)
+    public bulletPropM: Prefab = null
+    @property(Prefab)
+    public bulletPropS: Prefab = null
+    @property(Prefab)
+    public bulletPropH: Prefab = null
+    @property
+    public bulletPropSpeed = 0.3
+
     private _currShootTime = 0
     private _isShooting = false
     private _currCreateEnemyTime = 0
     private _combinationInterval = Constant.Combination.PLAN1
+    private _bulletType = Constant.BulletPropType.BULLET_M
 
 
     start() {
@@ -106,7 +118,8 @@ export class GameManager extends Component {
     }
 
     public createPlayerBullet() {
-        const bullet = instantiate(this.bullet01)
+        const bullet = instantiate(this[`bullet0${this._bulletType}`])
+        // const bullet = instantiate(this.bullet05)
         bullet.setParent(this.bulletRoot)
         const pos = this.playerPlane.position
         bullet.setPosition(pos.x, pos.y, pos.z - 2)
@@ -181,21 +194,46 @@ export class GameManager extends Component {
         }
     }
 
+    public createBulletProp() {
+        const randomProp = math.randomRangeInt(1, 4)
+        let prefab: Prefab = null
+        if (randomProp === Constant.BulletPropType.BULLET_S) {
+            prefab = this.bulletPropS
+        } else if (randomProp === Constant.BulletPropType.BULLET_H) {
+            prefab = this.bulletPropH
+        } else {
+            prefab = this.bulletPropM
+        }
+
+        const prop = instantiate(prefab)
+        prop.setParent(this.node)
+        prop.setPosition(15, 0, -50)
+        const propComp = prop.getComponent(BulletProp)
+        propComp.show(this, -this.bulletPropSpeed)
+    }
+
     public isShooting(value: boolean) {
         this._isShooting = value
+    }
+
+    public changeBulletType(type: number) {
+        this._bulletType = type
     }
 
     private _init() {
         this._currShootTime = this.shootTime
         this.changePlaneMode()
+
+        this.createBulletProp()
     }
 
     private changePlaneMode() {
-        this.schedule(this._modeChanged, 10, 3)
+        this.schedule(this._modeChanged, 10, macro.REPEAT_FOREVER)
     }
 
     private _modeChanged() {
         this._combinationInterval++
+        this.createBulletProp()
     }
 }
 

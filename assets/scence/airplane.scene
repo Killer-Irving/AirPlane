@@ -790,6 +790,19 @@
     "createEnemyTime": 1,
     "enemy1Speed": 0.5,
     "enemy2Speed": 0.7,
+    "bulletPropM": {
+      "__uuid__": "75ba80e3-24a1-47e8-b136-9dbf2b9fbee8",
+      "__expectedType__": "cc.Prefab"
+    },
+    "bulletPropS": {
+      "__uuid__": "369d2418-1462-49d8-9e80-1adc09c0d5c8",
+      "__expectedType__": "cc.Prefab"
+    },
+    "bulletPropH": {
+      "__uuid__": "84a43c81-b06c-4906-b78a-a9059b74253b",
+      "__expectedType__": "cc.Prefab"
+    },
+    "bulletPropSpeed": 0.3,
     "_id": "16X+qSQtlLDZGs59k8cmQm"
   },
   {
