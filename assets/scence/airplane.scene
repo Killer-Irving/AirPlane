@@ -520,6 +520,28 @@
     ]
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 23
+    },
+    "propertyPath": [
+      "_lscale"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 8,
+      "y": 8,
+      "z": 8
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "55XTQqEE5OZZtmwHiaKUgT",
+      "60mknV9MFcv5S4/+J3ONMb"
+    ]
+  },
+  {
     "__type__": "cc.Node",
     "_name": "Canvas",
     "_objFlags": 0,
@@ -631,7 +653,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 469.63455149501664,
+    "_orthoHeight": 320,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -774,7 +796,7 @@
       "__uuid__": "7a46df76-d656-4804-8bfb-23cc01a46b33",
       "__expectedType__": "cc.Prefab"
     },
-    "shootTime": 0.01,
+    "shootTime": 0.05,
     "bulletSpeed": 1,
     "bulletRoot": {
       "__id__": 33

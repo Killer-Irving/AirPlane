@@ -106,24 +106,24 @@ export class GameManager extends Component {
     }
 
     public createPlayerBullet() {
-        // const bullet = instantiate(this.bullet01)
-        // bullet.setParent(this.bulletRoot)
-        // const pos = this.playerPlane.position
-        // bullet.setPosition(pos.x, pos.y, pos.z - 2)
-        // const bulletComp = bullet.getComponent(Bullet)
-        // bulletComp.show(this.bulletSpeed, false)
+        const bullet = instantiate(this.bullet01)
+        bullet.setParent(this.bulletRoot)
+        const pos = this.playerPlane.position
+        bullet.setPosition(pos.x, pos.y, pos.z - 2)
+        const bulletComp = bullet.getComponent(Bullet)
+        bulletComp.show(this.bulletSpeed, false)
     }
 
     public createEnemyBullet(targetPos: Vec3) {
-        // const bullet = instantiate(this.bullet01)
-        // bullet.setParent(this.bulletRoot)
-        // bullet.setPosition(targetPos.x, targetPos.y, targetPos.z + 8)
-        // const bulletComp = bullet.getComponent(Bullet)
-        // bulletComp.show(1, true)
+        const bullet = instantiate(this.bullet01)
+        bullet.setParent(this.bulletRoot)
+        bullet.setPosition(targetPos.x, targetPos.y, targetPos.z + 8)
+        const bulletComp = bullet.getComponent(Bullet)
+        bulletComp.show(1, true)
 
-        // const colliderCpm = bullet.getComponent(BoxCollider)
-        // colliderCpm.setGroup(Constant.CollisionType.ENEMY_BULLET)
-        // colliderCpm.setMask(Constant.CollisionType.SELF_PLANE)
+        const colliderCpm = bullet.getComponent(BoxCollider)
+        colliderCpm.setGroup(Constant.CollisionType.ENEMY_BULLET)
+        colliderCpm.setMask(Constant.CollisionType.SELF_PLANE)
     }
 
     public createEnemyPlane() {
