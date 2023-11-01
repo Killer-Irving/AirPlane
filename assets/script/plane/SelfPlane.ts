@@ -20,7 +20,6 @@ export class SelfPlane extends Component {
 
     onEnable() {
         const collider = this.getComponent(Collider)
-        debugger
         collider.on('onTriggerEnter', this._onTriggerEnter, this)
     }
 
