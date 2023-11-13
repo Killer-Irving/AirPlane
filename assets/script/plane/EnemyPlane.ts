@@ -2,6 +2,7 @@
 import { _decorator, Component, game, Node, Collider, ITriggerEvent } from 'cc';
 import { GameManager } from '../frameWork/GameManager';
 import { Constant } from '../frameWork/Constant';
+import { PoolManager } from '../frameWork/PoolManager';
 const { ccclass, property } = _decorator;
 
 /**
@@ -53,7 +54,7 @@ export class EnemyPlane extends Component {
         }
 
         if (movePos > OUTOFBOUNCE) {
-            this.node.destroy()
+            PoolManager.instance().putNode(this.node)
         }
     }
 
@@ -66,9 +67,8 @@ export class EnemyPlane extends Component {
     private _onTriggerEnter(event: ITriggerEvent) {
         const collisionGroup = event.otherCollider.getGroup()
         if (collisionGroup === Constant.CollisionType.SELF_PLANE || collisionGroup === Constant.CollisionType.SELF_BULLET) {
-            console.log('trigger enemy destroy');
             this._gameManager.playAudioEffect('enemy')
-            this.node.destroy()
+            PoolManager.instance().putNode(this.node)
             this._gameManager.addScore()
         }
     }

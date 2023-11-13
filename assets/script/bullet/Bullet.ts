@@ -1,6 +1,7 @@
 
 import { _decorator, Collider, Component, ITriggerEvent, Node } from 'cc';
 import { Constant } from '../frameWork/Constant';
+import { PoolManager } from '../frameWork/PoolManager';
 const { ccclass, property } = _decorator;
 
 /**
@@ -44,7 +45,7 @@ export class Bullet extends Component {
             moveLength = pos.z + this._bulletSpeed
             this.node.setPosition(pos.x, pos.y, moveLength)
             if (moveLength > 50) {
-                this.node.destroy()
+                PoolManager.instance().putNode(this.node)
             }
         } else {
             moveLength = pos.z - this._bulletSpeed
@@ -57,7 +58,7 @@ export class Bullet extends Component {
             }
 
             if (moveLength < -50) {
-                this.node.destroy()
+                PoolManager.instance().putNode(this.node)
             }
         }
 
@@ -70,8 +71,7 @@ export class Bullet extends Component {
     }
 
     private _onTriggerEnter(event: ITriggerEvent) {
-        console.log('trigger bullet destroy');
-        this.node.destroy()
+        PoolManager.instance().putNode(this.node)
     }
 }
 
