@@ -44,7 +44,6 @@ export class PoolManager {
         const pool = this._dictPool[name]
         if (pool) {
             if (pool.size() > 0) {
-
                 node = pool.get()
             } else {
                 node = instantiate(prefab)
