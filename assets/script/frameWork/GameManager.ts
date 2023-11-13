@@ -5,6 +5,7 @@ import { Constant } from './Constant';
 import { EnemyPlane } from '../plane/EnemyPlane';
 import { BulletProp } from '../bullet/BulletProp';
 import { SelfPlane } from '../plane/SelfPlane';
+import { AudioManager } from './AudioManager'
 const { ccclass, property } = _decorator;
 
 /**
@@ -63,6 +64,7 @@ export class GameManager extends Component {
     @property
     public bulletPropSpeed = 0.3
 
+    // ui
     @property(Node)
     public gamePage: Node = null
     @property(Node)
@@ -73,6 +75,10 @@ export class GameManager extends Component {
     public gameOverScore: Label = null
     @property(Animation)
     public overAnim: Animation = null
+
+    // audio
+    @property(AudioManager)
+    public audioEffect: AudioManager = null
 
     public isGameStart = false
 
@@ -106,6 +112,9 @@ export class GameManager extends Component {
             } else {
                 this.createPlayerBulletM()
             }
+
+            const name = `bullet${this._bulletType % 2 + 1}`
+            this.playAudioEffect(name)
             this._currShootTime = 0
         }
 
@@ -162,6 +171,7 @@ export class GameManager extends Component {
         this.isGameStart = true
         this._currShootTime = 0
         this._currCreateEnemyTime = 0
+        this._changePlaneMode()
         this._combinationInterval = Constant.Combination.PLAN1
         this._bulletType = Constant.BulletPropType.BULLET_M
         this.playerPlane.node.setPosition(0, 0, 15)
@@ -327,6 +337,10 @@ export class GameManager extends Component {
 
     public changeBulletType(type: number) {
         this._bulletType = type
+    }
+
+    public playAudioEffect(name: string) {
+        this.audioEffect.play(name)
     }
 
     private _init() {
