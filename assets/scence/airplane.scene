@@ -27,23 +27,23 @@
         "__id__": 27
       },
       {
+        "__id__": 88
+      },
+      {
         "__id__": 87
       },
       {
-        "__id__": 86
-      },
-      {
-        "__id__": 90
+        "__id__": 91
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 95
+      "__id__": 96
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 98
+      "__id__": 99
     },
     "_id": "9b5f5d98-3a17-4675-805e-b2306ae6110b"
   },
@@ -592,9 +592,6 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 81
-      },
-      {
         "__id__": 82
       },
       {
@@ -602,6 +599,9 @@
       },
       {
         "__id__": 84
+      },
+      {
+        "__id__": 85
       }
     ],
     "_prefab": null,
@@ -1512,6 +1512,9 @@
       },
       {
         "__id__": 80
+      },
+      {
+        "__id__": 81
       }
     ],
     "_prefab": null,
@@ -1534,7 +1537,7 @@
       "y": 1,
       "z": 1
     },
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -2536,6 +2539,17 @@
     "_id": "5fPQEtyvtNOq+/vFKg/jpm"
   },
   {
+    "__type__": "cc.BlockInputEvents",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 52
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_id": "a5/kAbFAtFHJnnWcFwggVx"
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -2614,7 +2628,7 @@
       "__id__": 12
     },
     "gameManager": {
-      "__id__": 85
+      "__id__": 86
     },
     "gameStart": {
       "__id__": 30
@@ -2632,7 +2646,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 86
+      "__id__": 87
     },
     "_enabled": true,
     "__prefab": null,
@@ -2660,7 +2674,7 @@
     "shootTime": 0.1,
     "bulletSpeed": 1,
     "bulletRoot": {
-      "__id__": 87
+      "__id__": 88
     },
     "enemy01": {
       "__uuid__": "5a8fe125-9bf3-4daf-a5d0-458a4cd8deca",
@@ -2702,7 +2716,7 @@
       "__id__": 68
     },
     "audioEffect": {
-      "__id__": 88
+      "__id__": 89
     },
     "_id": "16X+qSQtlLDZGs59k8cmQm"
   },
@@ -2717,7 +2731,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 85
+        "__id__": 86
       }
     ],
     "_prefab": null,
@@ -2794,7 +2808,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 90
     },
     "_enabled": true,
     "__prefab": null,
@@ -2823,16 +2837,16 @@
     "_name": "effect",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 90
+      "__id__": 91
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 94
+        "__id__": 95
       },
       {
-        "__id__": 88
+        "__id__": 89
       }
     ],
     "_prefab": null,
@@ -2873,16 +2887,16 @@
     },
     "_children": [
       {
-        "__id__": 91
+        "__id__": 92
       },
       {
-        "__id__": 89
+        "__id__": 90
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 93
+        "__id__": 94
       }
     ],
     "_prefab": null,
@@ -2919,13 +2933,13 @@
     "_name": "bgm",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 90
+      "__id__": 91
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 92
+        "__id__": 93
       }
     ],
     "_prefab": null,
@@ -2962,7 +2976,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 92
     },
     "_enabled": true,
     "__prefab": null,
@@ -2980,7 +2994,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 90
+      "__id__": 91
     },
     "_enabled": true,
     "__prefab": null,
@@ -3001,7 +3015,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 89
+      "__id__": 90
     },
     "_enabled": true,
     "__prefab": null,
@@ -3016,14 +3030,14 @@
     "fileId": "",
     "targetOverrides": [
       {
-        "__id__": 96
+        "__id__": 97
       }
     ]
   },
   {
     "__type__": "cc.TargetOverrideInfo",
     "source": {
-      "__id__": 85
+      "__id__": 86
     },
     "sourceInfo": null,
     "propertyPath": [
@@ -3033,7 +3047,7 @@
       "__id__": 12
     },
     "targetInfo": {
-      "__id__": 97
+      "__id__": 98
     }
   },
   {
@@ -3045,16 +3059,16 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 99
-    },
-    "shadows": {
       "__id__": 100
     },
-    "_skybox": {
+    "shadows": {
       "__id__": 101
     },
-    "fog": {
+    "_skybox": {
       "__id__": 102
+    },
+    "fog": {
+      "__id__": 103
     }
   },
   {
