@@ -54,6 +54,8 @@ export class GameManager extends Component {
     public enemy1Speed = 0.5
     @property
     public enemy2Speed = 0.7
+    @property(Prefab)
+    public enemyExplode: Prefab = null
 
     //道具
     @property(Prefab)
@@ -126,7 +128,7 @@ export class GameManager extends Component {
                 this._currCreateEnemyTime = 0
             }
         } else if (this._combinationInterval === Constant.Combination.PLAN2) {
-            if (this._currCreateEnemyTime > this.createEnemyTime *3) {
+            if (this._currCreateEnemyTime > this.createEnemyTime * 3) {
                 const randomCombination = math.randomRangeInt(1, 3)
                 if (randomCombination === Constant.Combination.PLAN2) {
                     this.createCombination1()
@@ -166,17 +168,16 @@ export class GameManager extends Component {
         this._changePlaneMode()
         this._score = 0
         this.gameScore.string = this._score.toString()
+        this.playerPlane.init()
     }
 
     public gameReStart() {
-        this.isGameStart = true
+        this.gameStart()
         this._currShootTime = 0
         this._currCreateEnemyTime = 0
-        this._changePlaneMode()
         this._combinationInterval = Constant.Combination.PLAN1
         this._bulletType = Constant.BulletPropType.BULLET_M
         this.playerPlane.node.setPosition(0, 0, 15)
-        this._score = 0
     }
 
     public gameOver() {
@@ -186,7 +187,6 @@ export class GameManager extends Component {
         this.gameOverScore.string = this._score.toString()
         this.overAnim.play()
         this._isShooting = false
-        this.playerPlane.init()
         this.unschedule(this._modeChanged)
         this._destroyAll()
     }
@@ -303,6 +303,11 @@ export class GameManager extends Component {
             const enemyComp = element.getComponent(EnemyPlane)
             enemyComp.show(this, this.enemy2Speed, false)
         }
+    }
+
+    public createEnemyEffect(pos: Vec3) {
+        const effect = PoolManager.instance().getNode(this.enemyExplode, this.node)
+        effect.setPosition(pos)
     }
 
     public createBulletProp() {
