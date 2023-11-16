@@ -36,8 +36,7 @@ export class GameManager extends Component {
     public bullet04: Prefab = null
     @property(Prefab)
     public bullet05: Prefab = null
-    @property
-    public shootTime = 0.3
+    public shootTime = Constant.ShootTime.LEVEL_1
     @property
     public bulletSpeed = 1
     @property(Node)
@@ -89,10 +88,12 @@ export class GameManager extends Component {
     private _isShooting = false
     private _currCreateEnemyTime = 0
     private _combinationInterval = Constant.Combination.PLAN1
-    private _bulletType = Constant.BulletPropType.BULLET_M
+    public _bulletType = Constant.BulletPropType.BULLET_M
     private _score = 0
+    public _killCount = 0
 
     start() {
+        this.playerPlane._setGameManager(this)
         this._init()
     }
 
@@ -161,12 +162,15 @@ export class GameManager extends Component {
         this._bulletType = Constant.BulletPropType.BULLET_M
         this.playerPlane.node.setPosition(0, 0, 15)
         this._score = 0
+        this._killCount = 0
     }
 
     public gameStart() {
         this.isGameStart = true
         this._changePlaneMode()
         this._score = 0
+        this._killCount = 0
+        this.shootTime = Constant.ShootTime.LEVEL_1
         this.gameScore.string = this._score.toString()
         this.playerPlane.init()
     }
@@ -194,6 +198,17 @@ export class GameManager extends Component {
     public addScore() {
         this._score++
         this.gameScore.string = this._score.toString()
+        
+        if(this.playerPlane._currLife !== this.playerPlane.lifeValue){
+            this._killCount++
+        }
+        if(this._killCount === 10){
+            this.playerPlane._addLife()
+            this._killCount = 0
+        }
+
+        console.log(this._killCount);
+        
     }
 
     public createPlayerBulletM() {

@@ -46,6 +46,12 @@ export class Constant {
         MIDDLE: 2,
         RIGHT: 3,
     }
+
+    public static ShootTime = {
+        LEVEL_1: 0.5,
+        LEVEL_2: 0.25,
+        LEVEL_3: 0.125,
+    }
 }
 
 /**
