@@ -3711,7 +3711,6 @@
       "__uuid__": "7a46df76-d656-4804-8bfb-23cc01a46b33",
       "__expectedType__": "cc.Prefab"
     },
-    "shootTime": 0.5,
     "bulletSpeed": 1,
     "bulletRoot": {
       "__id__": 155
